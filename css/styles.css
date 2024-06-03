@@ -293,10 +293,14 @@ box-shadow: 0px 3px 4px 0px rgba(50, 50, 50, 0.38);
 	background-size: 100% 100%;
 	background-size: cover;
 	position: relative;
+	background-color: #f7931a;;
 }
 .banner-container > img {
-	width: 100%;
-	
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
+	display: block;
 }
 .banner-content {
 	position: absolute;
@@ -326,22 +330,22 @@ text-align:center;
 }
 .banner-content .social-icons{
  text-align:center; 
- margin-top:20px;
+ margin-top: 5%;
 }
 .banner-content .social-icons a{
 text-align: center;
 border: 1px solid #fff;
 border-radius: 90px !important;
-height: 52px;
-line-height: 60px;
+height: 26px;
+line-height: 26px;
 padding: 0px;
-width: 52px;
+width: 26px;
 display: inline-block;
 color:#fff;
 margin:0 6px;
 }
 .banner-content .social-icons a i{
-font-size:26px;
+font-size:13px;
 }
 .banner-content .social-icons a:hover {
 background:#5887FF;
@@ -367,8 +371,9 @@ margin-top:25px;
  text-align:center;
  margin: 0;
 padding: 0;
+margin-top: -3vh;
 font-size: 5em;
-font-weight: 700;
+/*font-weight: 700;*/
 letter-spacing: .1em;
 line-height: 1em;
 text-transform: uppercase;
@@ -1027,11 +1032,11 @@ footer {
 	margin: 0px 5px;
 }
 #portfolio{
-background: #DBDBDB;	
-	}
+	background: #DBDBDB;	
+}
 #contactUs{
-	 /*background: #3394D5;*/
-	 background: #f7931a
+	/*background: #3394D5;*/
+	background: #f7931a;
 }
 #contactUs p{
 color:#000;
