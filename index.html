@@ -59,8 +59,38 @@
 <!--/.header-->
 <div id="#top"></div>
 <section id="home" class="text-center">
-  <div class="banner-container"> <img src="images/sfondo.png" alt="banner"/>
-    <div class="container banner-content"> 
+  <div class="banner-container">
+    <img src="images/sfondo.png" alt="banner"/>
+    <div class="container banner-content">
+
+      <div class="language-selector">
+        <button onclick="toggleLanguage(this, 'en')"><img src="images/language/global.svg" alt="English"></button>
+        <button onclick="toggleLanguage(this, 'it')"><img src="images/language/it.svg" alt="Italian"></button>
+      </div>
+      <!--vers 3.0 nasconde il bottone non selezionato -->
+      <script>
+        let buttons = document.querySelectorAll('.language-selector button');
+      
+        function toggleLanguage(button, lang) {
+          buttons.forEach(btn => {
+            if (btn !== button) {
+              btn.classList.toggle('hidden');
+            }
+            btn.classList.remove('active');
+          });
+      
+          document.querySelectorAll('[data-en]').forEach(element => {
+            element.innerText = element.getAttribute(`data-${lang}`);
+          });
+      
+          button.classList.toggle('active');
+        }
+      
+        // Chiamata iniziale per impostare la lingua inglese
+        let initialButton = document.querySelector('.language-selector button[onclick*="en"]');
+        toggleLanguage(initialButton, 'en');
+      </script>
+
             <div class="row">
                 <!--<header class="centered">
                      <h1>₿TCSicily olive oil</h1>
@@ -80,7 +110,8 @@
 <section id="introText">
   <div class="container">
     <div>
-      <h1>"The olive oil of bitcoiners, cold-pressed from fragrant Sicilian olives,<br>a fruit of proof-of-work!"</h1>
+      <h1 data-en='"The olive oil of bitcoiners, cold-pressed from fragrant Sicilian olives,' data-it="'L'olio d'oliva dei bitcoiners, ottenuto a freddo da profumate olive siciliane,">"The olive oil of bitcoiners, cold-pressed from fragrant Sicilian olives,</h1>
+      <h1 data-en='A true fruit of proof-of-work!"' data-it="Autentico frutto del proof-of-work!'">A true fruit of proof-of-work"</h1>
       <p>Perfect for seasoning our beloved t-bone steaks or any vegan dish!</p>
     </div>
   </div>
@@ -93,7 +124,8 @@
       <div class="col-md-4 tileBox"> <img src="images/profilePhoto1.png" alt="me"/> </div>
       <div class="col-md-8 tileBox">
         <div class="txtHead">
-          <h2>Hello, I am Domenico...</h2>
+          <h2 data-en="Hello, I am Domenico..." data-it="Ciao, io sono Domenico...">Hello, I am Domenico...</h2>
+
           <h3>DevOps Engineer/Back End Developer Based in Sicily, Italy</h3>
         </div>
         <p>In this photo I am the boy with the white t-shirt, alongside one of the people I respect most in the world, namely <a href="https://x.com/giacomozucco" target="_blank">Giacomo Zucco</a><br/>
@@ -115,7 +147,7 @@
   <div class="parlex-back">
     <div class="container">
      <div class="row">
-	<div class="col-md-12">      <h2>“Dreams are extremely important. You can’t do it unless you imagine it.” <span>-George Lucas</span></h2></div>
+	<div class="col-md-12">      <h2>“Dreams are extremely important. You can't do it unless you imagine it.” <span>-George Lucas</span></h2></div>
       </div>
     </div>
     <!--/.container--> 
@@ -255,21 +287,17 @@
   <div>
     <div class="row">
       <div class="lnDonation">
-        <h4>Donate 0,00021000sats for 210ML of SIcilian Organic Extra Virgine Olive Oil</h4>
-      </div>
-      <div id="logoLN" class="lnDonation">
-        <img src="images/logoLNw.png" width="35%" alt="OLNY bitcoin lightning accepted here"/>
+        <h4>Donate sats for 250ml or 500ml or 5L of SIcilian Organic Extra Virgine Olive Oil. Value for Value!</h4>
       </div>
     </div>
-  <p>Cliccando il bottone verrà generato un invoice attraverso il servizio di BTCPay Server Italia che genererà un invoice lightning network di 0,00021000sats</p>
   
-  <div class="img-container">
+  <!--<div class="img-container">
     <div><img src="images/portfolio/bottle250ml.png" alt="Bottle250ml" /></div>
     <div><img src="images/portfolio/bottle500ml.png" alt="Bottle500ml" /></div>
     <div><img src="images/portfolio/can5L.png" alt="Can5L" /></div>
   </div> <br>
 
-</div>
+</div>-->
 
 <!--   <div class="row">
 
@@ -333,55 +361,6 @@
 </div>   -->
 
 
-
-
-<style>
-  .exp-wrapper {
-    background: #FFF;
-    margin: 20px 10px;
-    text-align: center;
-    padding: 30px 20px;
-    -webkit-border-radius: 5px;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 5px;
-    -moz-background-clip: padding;
-    border-radius: 5px;
-    background-clip: padding-box;
-    -webkit-box-shadow: 0 0 3px #999;
-    -moz-box-shadow: 0 0 3px #999;
-    box-shadow: 0 0 3px #999;
-    color: 0 0 3px #999;
-  }
-
-  .exp-wrapper h3 {
-    font-size: 1.2em;
-    margin: 10px 0 !important;
-  }
-
-  .selected-option {
-    border: 2px solid #f7931a;
-  }
-
-  .custom-select {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    width: auto;
-    max-width: 100%;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 2px solid #f7931a;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
-  }
-
-</style>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -399,25 +378,43 @@
   <div class="row">
     <div class="col-md-4" onclick="selectOption(0)">
       <div id="option1" class="exp-wrapper">
-          <img src="images/portfolio/bottle250ml.png" width="120" alt="Bottle250ml">
-          <h3>Bottle 250ml Extra Virgin Olive Oil</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <a href="images/portfolio/bottle250ml.png" class="fancybox">
+          <div class="image-wrapper-bottles">
+            <img src="images/portfolio/bottle250ml.png" width="120" alt="250ml Bottle" title="Click to enlarge" />
+            <button class="zoom-button-bottles"><i class="fa fa-search-plus"></i></button>
+          </div>
+        </a>
+        <h3 data-en="250ml Extra Virgin Olive Oil Bottle" data-it="Bottiglia da 250ml Olio Extra Vergine di Oliva">250ml Extra Virgin Olive Oil Bottle</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <p class="bottleValue">₿0,00021000</p>
       </div>
     </div>
     
     <div class="col-md-4" onclick="selectOption(1)">
       <div id="option2" class="exp-wrapper">
-          <img src="images/portfolio/bottle500ml.png" width="120" alt="Bottle500ml">
-          <h3>Bottle 500ml Extra Virgin Olive Oil</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been. </p>
+        <a href="images/portfolio/bottle500ml.png" class="fancybox">
+          <div class="image-wrapper-bottles">
+            <img src="images/portfolio/bottle500ml.png" width="120" alt="500ml Bottle" title="Click to enlarge" />
+            <button class="zoom-button-bottles"><i class="fa fa-search-plus"></i></button>
+          </div>
+        </a>
+        <h3>500ml Extra Virgin Olive Oil Bottle</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been. </p>
+        <p class="bottleValue">₿0,00039000</p>
       </div>
     </div>
     
     <div class="col-md-4" onclick="selectOption(2)">
       <div id="option3" class="exp-wrapper">
-          <img src="images/portfolio/can5L.png" width="120" alt="Can5L">
-          <h3>Can 5L Extra Virgin Olive Oil - 5 litres</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <a href="images/portfolio/can5L.png" class="fancybox">
+          <div class="image-wrapper-bottles">
+            <img src="images/portfolio/can5L.png" width="120" alt="5L Can" title="Click to enlarge" />
+            <button class="zoom-button-bottles"><i class="fa fa-search-plus"></i></button>
+          </div>
+        </a>
+        <h3>5L Extra Virgin Olive Oil Can</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <p class="bottleValue">₿0,00099000</p>
       </div>
     </div>
   </div>
@@ -427,6 +424,14 @@
       <div id="price"></div>
     </div>
   </div>
+
+  <div class="lnDonation">
+    <p>Cliccando il bottone verrà generato un invoice attraverso il servizio di BTCPay Server Italia che genererà un invoice lightning network del valore: <span id="value"></span></p>
+  </div>
+  <div class="lnDonationButton">
+    <img id="logoLN" src="images/logoLNw.png" alt="OLNY bitcoin lightning accepted here"/>
+  </div>
+
 </div>
 
 <script>
@@ -439,8 +444,11 @@
   function showPrice() {
     var select = document.getElementById("format");
     var price = document.getElementById("price");
+    var value = document.getElementById("value");
     var selectedPrice = select.options[select.selectedIndex].text.split('-')[1].trim();
     price.textContent = "Value: " + selectedPrice;
+    value.textContent = selectedPrice; // Imposta il valore di priceValue con il prezzo selezionato
+
     price.style.textAlign = "center";
     price.style.color = "#f7931a";
     price.style.textTransform = "uppercase";
@@ -468,11 +476,6 @@
   // Esegui showPrice al caricamento della pagina per visualizzare il prezzo iniziale
   showPrice();
 </script>
-
-
-
-
-
 
 </section>
 
